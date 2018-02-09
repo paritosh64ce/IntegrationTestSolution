@@ -51,12 +51,21 @@
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Exceptions\Exceptions.cs" />
+    <Compile Include="Migrations\201802091912102_AddEmployeeSalary.cs" />
+    <Compile Include="Migrations\201802091912102_AddEmployeeSalary.Designer.cs">
+      <DependentUpon>201802091912102_AddEmployeeSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\CompanyDBConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201802091912102_AddEmployeeSalary.resx">
+      <DependentUpon>201802091912102_AddEmployeeSalary.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

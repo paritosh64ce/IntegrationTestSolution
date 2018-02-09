@@ -6,16 +6,23 @@
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }
+        public decimal Salary { get; set; }
 
         private Employee() { }
 
-        public static Employee Create(string fName, string lName, string email)
+        public void IncreaseSalary(decimal increment)
+        {
+            this.Salary += increment;
+        }
+
+        public static Employee Create(string fName, string lName, string email, decimal salary = 0)
         {
             return new Employee
             {
                 FirstName = fName,
                 LastName = lName,
-                Email = email
+                Email = email,
+                Salary = salary
             };
         }
     }

@@ -20,9 +20,9 @@ namespace Company.BusinessLayer.Services
             return employee;
         }
 
-        public Employee CreateEmployee(string firstName, string lastName, string email)
+        public Employee CreateEmployee(string firstName, string lastName, string email, decimal salary = 0)
         {
-            var employee = Employee.Create(firstName, lastName, email);
+            var employee = Employee.Create(firstName, lastName, email, salary);
             context.Employees.Add(employee);
             context.SaveChanges();
 

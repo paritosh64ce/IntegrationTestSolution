@@ -30,8 +30,8 @@ namespace IntegrationTests
                             MasterDBConnectionStr,
                             $"CREATE DATABASE [{DBNAME}] ON (NAME='{DBNAME}', FILENAME='{FileName}')");
 
-            //var migration = new MigrateDatabaseToLatestVersion<CompanyDBContext, CompanyDBConfiguration>();
-            //migration.InitializeDatabase(new CompanyDBContext());
+            var migration = new MigrateDatabaseToLatestVersion<CompanyDBContext, CompanyDBConfiguration>();
+            migration.InitializeDatabase(new CompanyDBContext());
         }
 
         [OneTimeTearDown]

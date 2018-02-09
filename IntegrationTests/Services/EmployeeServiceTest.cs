@@ -47,16 +47,23 @@ namespace IntegrationTests.Services
             Assert.That(ex.StackTrace.Contains("SaveChanges"));
         }
 
-        //[Test]
-        //public void UpdateEmployeeShouldWork()
-        //{
-        //    var empSvc = GetEmployeeServiceInstance();
-        //    empSvc.CreateEmployee("FName1", "LName1", "fname.lname@company", 1500);
+        /// <summary>
+        /// Integration test to verify Employee update functionality
+        /// </summary>
+        [Test]
+        public void UpdateEmployeeShouldWork()
+        {
+            var empSvc = GetEmployeeServiceInstance();
+            empSvc.CreateEmployee("FName1", "LName1", "fname.lname@company", 1500);
 
-        //    var emp = empSvc.GetEmployeeByEmailId("fname.lname@company");
-        //    //savedEmp.
-        //    empSvc.UpdateEmployee(emp);
-        //}
+            var emp = empSvc.GetEmployeeByEmailId("fname.lname@company");
+            emp.IncreaseSalary(500);
+            empSvc.UpdateEmployee(emp);
+
+            // Assert the employee's salary
+            var updatedEmployee = empSvc.GetEmployeeByEmailId("fname.lname@company");
+            Assert.AreEqual(updatedEmployee.Salary, 2000);
+        }
 
         private EmployeeService GetEmployeeServiceInstance()
         {
