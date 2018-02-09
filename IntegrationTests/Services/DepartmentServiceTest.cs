@@ -43,6 +43,23 @@ namespace IntegrationTests.Services
         }
 
         /// <summary>
+        /// Integration test to check the SQL exception for Unique constraint for department name
+        /// </summary>
+        [Test]
+        public void CannotCreateDepartmentHavingSameName()
+        {
+            var deptService = GetDepartmentServiceInstance();
+            var department1 = CreateDepartment(deptService, "FirstDepartment");
+
+            // Asserts the exceptions raised by Entity Framework / E-SQL queries 
+            // while saving department having same name
+            var ex = Assert.Throws<System.Data.Entity.Infrastructure.DbUpdateException>(() => {
+                var department2 = CreateDepartment(deptService, "FirstDepartment");
+            });
+            Assert.That(ex.StackTrace.Contains("SaveChanges"));
+        }
+
+        /// <summary>
         /// Integration test for testing the business rule
         /// "Employee cannot be added to the same department multiple times"
         /// </summary>

@@ -1,6 +1,5 @@
 ﻿using Company.BusinessLayer.Services;
 using Company.Data;
-using Company.Data.Entities;
 using NUnit.Framework;
 using System;
 
@@ -41,6 +40,7 @@ namespace IntegrationTests.Services
             Assert.NotZero(emp1.Id);
 
             // Asserts the exceptions raised by Entity Framework / E-SQL queries
+            // while saving employee having same email
             var ex = Assert.Throws<System.Data.Entity.Infrastructure.DbUpdateException>(() => {
                 var emp2 = employeeService.CreateEmployee("FName2", "LName2", email);
             });
