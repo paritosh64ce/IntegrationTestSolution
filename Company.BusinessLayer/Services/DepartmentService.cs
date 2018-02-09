@@ -1,8 +1,7 @@
-﻿using System;
-using Data;
-using Data.Entities;
+﻿using Company.Data;
+using Company.Data.Entities;
 
-namespace BusinessLogic
+namespace Company.BusinessLayer.Services
 {
     public class DepartmentService
     {
@@ -15,11 +14,19 @@ namespace BusinessLogic
 
         public Department CreateDepartment(string name, string description = "")
         {
-            var department = new Department { Name = name, Description = description };
+            var department = Department.Create(name, description);
             context.Departments.Add(department);
             context.SaveChanges();
 
             return department;
+        }
+
+        public Employee AddEmployee(Department dept, Employee emp)
+        {
+            dept.AddEmployee(emp);
+            context.SaveChanges();
+
+            return emp;
         }
     }
 }

@@ -1,16 +1,15 @@
-namespace Data.Migrations
+namespace Company.Data.Migrations
 {
-    using Data.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.CompanyDBContext>
+    public sealed class CompanyDBConfiguration : DbMigrationsConfiguration<Data.CompanyDBContext>
     {
-        public Configuration()
+        public CompanyDBConfiguration()
         {
-            AutomaticMigrationsEnabled = true ;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Data.CompanyDBContext context)
@@ -19,7 +18,6 @@ namespace Data.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            
         }
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{B6C4F086-9F01-4281-A3B3-FF5DA03CAEA3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
-    <AssemblyName>Data</AssemblyName>
+    <RootNamespace>Company.Data</RootNamespace>
+    <AssemblyName>Company.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,21 +50,13 @@
     <Compile Include="CompanyDBContext.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Migrations\201712171000472_Add-EmployeeEmailAndOtherConstraint.cs" />
-    <Compile Include="Migrations\201712171000472_Add-EmployeeEmailAndOtherConstraint.Designer.cs">
-      <DependentUpon>201712171000472_Add-EmployeeEmailAndOtherConstraint.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Exceptions\Exceptions.cs" />
+    <Compile Include="Migrations\CompanyDBConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712171000472_Add-EmployeeEmailAndOtherConstraint.resx">
-      <DependentUpon>201712171000472_Add-EmployeeEmailAndOtherConstraint.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

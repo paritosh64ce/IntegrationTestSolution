@@ -1,9 +1,9 @@
-﻿using Data.Entities;
+﻿using Company.Data.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
 
-namespace Data
+namespace Company.Data
 {
     public class CompanyDBContext : DbContext
     {
